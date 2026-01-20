@@ -1,13 +1,6 @@
 # Shape Filling AI
 
-This project implements a **shape-filling neural network** that learns to convert **outline-only images of shapes** into their **filled-in counterparts**. The task is formulated as a **binary image-to-image segmentation problem** and is solved using a **custom U-Net–style convolutional neural network** implemented in **PyTorch**.
-
-The project was designed as a lightweight vision-mask challenge, focusing on:
-
-* Synthetic data generation
-* End-to-end model training
-* Inference and visualization
-* Clean, minimal ML system design
+This project implements a **shape-filling neural network** that learns to convert outline-only images of shapes into their filled-in counterparts. The task is formulated as a binary image-to-image segmentation problem and is solved using a custom U-Net–style convolutional neural network implemented in PyTorch.
 
 ---
 
@@ -24,7 +17,7 @@ Supported shapes include:
 * Small dots (already filled)
 * Lines / open shapes
 
-The model is intentionally trained on **randomly positioned, rotated, and scaled shapes** to encourage generalization.
+The model is intentionally trained on randomly positioned, rotated, and scaled shapes to encourage generalization.
 
 ---
 
@@ -56,7 +49,7 @@ shape-filling-ai/
 
 ## Requirements
 
-Python 3.8+
+Python 3+
 
 Install dependencies using:
 
@@ -77,10 +70,10 @@ opencv-python
 
 ## Step 1: Generate the Dataset
 
-Synthetic training data is generated using **only NumPy and OpenCV**. Each sample consists of:
+Synthetic training data is generated using only NumPy and OpenCV. Each sample consists of:
 
-* An **outline image** (input)
-* A **filled mask image** (target)
+* An outline image (input)
+* A filled mask image (target)
 
 Run the dataset generation script:
 
@@ -108,7 +101,7 @@ The model is a **custom U-Net–style encoder–decoder** with:
 * Downsampling via max-pooling
 * Upsampling via transposed convolutions
 
-The task is trained as a **binary segmentation problem**.
+The task is trained as a binary segmentation problem.
 
 Start training with:
 
@@ -179,18 +172,6 @@ The model learns to:
 
 ---
 
-## Limitations & Future Work
-
-Possible extensions include:
-
-* Multi-shape images
-* Thicker or broken outlines
-* Uncertainty estimation (e.g., Monte Carlo Dropout)
-* Multi-class shape prediction
-* More expressive architectures
-
----
-
 ## Environment
 
 This project is compatible with:
@@ -205,9 +186,3 @@ No external datasets are required.
 ## Author
 
 Developed as part of a vision-mask challenge focused on efficient and scalable ML architectures.
-
----
-
-## License
-
-This project is intended for educational and research purposes.
