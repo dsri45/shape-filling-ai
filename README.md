@@ -106,8 +106,7 @@ The task is trained as a binary segmentation problem.
 Start training with:
 
 ```bash
-cd scripts
-python train.py
+python scripts/train.py
 ```
 
 Training details:
@@ -133,7 +132,7 @@ The prediction script loads the trained model and runs inference on outline imag
 Run:
 
 ```bash
-python predict.py
+python scripts/predict.py
 ```
 
 This script:
@@ -186,3 +185,4 @@ No external datasets are required.
 ## Author
 
 Developed as part of a vision-mask challenge focused on efficient and scalable ML architectures.
+
