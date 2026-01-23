@@ -11,6 +11,7 @@ def ensure_dir(path):
 def blank_image(size):
     return np.zeros((size, size), dtype=np.uint8)
 
+# Pick a random center for shape. Avoid placing shapes too close to edges
 def random_center(size):
     margin = size // 5
     return random.randint(margin, size - margin), random.randint(margin, size - margin)
@@ -68,12 +69,17 @@ def draw_line(img, mask):
 
 SHAPES = [draw_circle, draw_rectangle, draw_ellipse, draw_star, draw_dot, draw_line]
 
+
+#   dataset generation
 def main(args):
+
+  #  output folders
     out_outline = os.path.join(args.output, args.split, "outlines")
     out_filled = os.path.join(args.output, args.split, "filled")
     ensure_dir(out_outline)
     ensure_dir(out_filled)
 
+  # image generation
     for i in range(args.count):
         img = blank_image(args.size)
         mask = blank_image(args.size)
@@ -81,6 +87,7 @@ def main(args):
         cv2.imwrite(f"{out_outline}/{i:05d}.png", img)
         cv2.imwrite(f"{out_filled}/{i:05d}.png", mask)
 
+# some command line arguments
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", default="../data")
